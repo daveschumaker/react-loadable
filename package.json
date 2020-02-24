@@ -2,20 +2,19 @@
   "name": "react-loadable",
   "version": "5.5.1",
   "description": "A higher order component for loading components with promises",
-  "main": "lib/index.js",
+  "main": "src/index.js",
   "author": "James Kyle <me@thejameskyle.com>",
   "license": "MIT",
   "repository": "thejameskyle/react-loadable",
   "files": [
     "babel.js",
     "webpack.js",
-    "lib/**"
+    "src/**"
   ],
   "scripts": {
     "test": "jest --coverage",
     "build": "babel src -d lib",
-    "start": "yarn build && webpack && babel-node example/server.js",
-    "prepublish": "yarn build"
+    "start": "yarn build && webpack && babel-node example/server.js"
   },
   "dependencies": {
     "prop-types": "^15.5.0"
