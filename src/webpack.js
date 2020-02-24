@@ -11,9 +11,15 @@ function buildManifest(compiler, compilation) {
     chunk.files.forEach(file => {
       chunk.forEachModule(module => {
         let id = module.id;
-        let name = typeof module.libIdent === 'function' ? module.libIdent({ context }) : null;
-        let publicPath = url.resolve(compilation.outputOptions.publicPath || '', file);
-        
+        let name =
+          typeof module.libIdent === 'function'
+            ? module.libIdent({ context })
+            : null;
+        let publicPath = url.resolve(
+          compilation.outputOptions.publicPath || '',
+          file
+        );
+
         let currentModule = module;
         if (module.constructor.name === 'ConcatenatedModule') {
           currentModule = module.rootModule;
@@ -59,5 +65,5 @@ function getBundles(manifest, moduleIds) {
   }, []);
 }
 
-exports.ReactLoadablePlugin = ReactLoadablePlugin;
-exports.getBundles = getBundles;
+module.exports.ReactLoadablePlugin = ReactLoadablePlugin;
+module.exports.getBundles = getBundles;

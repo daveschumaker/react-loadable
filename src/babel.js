@@ -1,4 +1,4 @@
-export default function({ types: t, template }) {
+module.exports = function({ types: t, template }) {
   return {
     visitor: {
       ImportDeclaration(path) {
@@ -65,11 +65,11 @@ export default function({ types: t, template }) {
                   dynamicImports.map(dynamicImport => {
                     return t.callExpression(
                       t.memberExpression(
-                      	t.identifier('require'),
-                        t.identifier('resolveWeak'),
+                        t.identifier('require'),
+                        t.identifier('resolveWeak')
                       ),
-                      [dynamicImport.get('arguments')[0].node],
-                    )
+                      [dynamicImport.get('arguments')[0].node]
+                    );
                   })
                 )
               )
@@ -90,4 +90,4 @@ export default function({ types: t, template }) {
       }
     }
   };
-}
+};
